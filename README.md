@@ -52,8 +52,8 @@ Once you have your cluster up and running, configure a Kubernetes GitLab Agent t
 >    --set config.kasAddress=wss://kas.gitlab.com <br>
 
 A successful agent-cluster connection should look similar to the following: <br>
-[Successful Agent Install](images/1_succesful_agent_install.png) <br>
-[Successful Agent Connection](images/4_successful_agent_connection.png)<br><br>
+![Successful Agent Install](images/1_succesful_agent_install.png) <br>
+![Successful Agent Connection](images/4_successful_agent_connection.png)<br><br>
 
 #### Errors to work thru
 A potential error may stem from not having the proper admin priveleges or not having correct certificates, it would look similar to: <br><br>
