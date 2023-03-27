@@ -52,8 +52,8 @@ Once you have your cluster up and running, configure a Kubernetes GitLab Agent t
 >    --set config.kasAddress=wss://kas.gitlab.com <br>
 
 A successful agent-cluster connection should look similar to the following: <br>
-[Successful Agent Install](images/1_succesful_agent_install.png) <br>
-[Successful Agent Connection](images/4_successful_agent_connection.png)<br><br>
+![Successful Agent Install](images/1_succesful_agent_install.png) <br>
+![Successful Agent Connection](images/4_successful_agent_connection.png)<br><br>
 
 #### Errors to work thru
 A potential error may stem from not having the proper admin priveleges or not having correct certificates, it would look similar to: <br><br>
@@ -61,6 +61,6 @@ A potential error may stem from not having the proper admin priveleges or not ha
 >> Error: looks like "https://charts.gitlab.io" is not a valid chart repository or cannot be reached: Get "https://charts.gitlab.io/index.yaml": x509: certificate is valid for udev-caci.com, 65 216.151.125, 63.118.47.119, 65.201.168.195, 65.201.131.67, 65.216.151.125, 63.118.47.119, 65.201.168.195, 65.201.131.67, not charts.gitlab.io
 
 
-## DevOps the Hard way
+## DevOps the Hard way (not really)
 
-We start by pulling code from here: [DevOps Quickstart Kubes](https://github.com/AdminTurnedDevOps/Kubernetes-Quickstart-Environments)
+We start by pulling code from here: [DevOps Quickstart Kubes](https://github.com/AdminTurnedDevOps/Kubernetes-Quickstart-Environments.git)
