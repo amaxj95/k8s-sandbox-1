@@ -58,7 +58,7 @@ A successful agent-cluster connection should look similar to the following: <br>
 #### Errors to work thru
 A potential error may stem from not having the proper admin priveleges or not having correct certificates, it would look similar to: <br><br>
 
->> Error: looks like "https://charts.gitlab.io" is not a valid chart repository or cannot be reached: Get "https://charts.gitlab.io/index.yaml": x509: certificate is valid for udev-caci.com, 65 216.151.125, 63.118.47.119, 65.201.168.195, 65.201.131.67, 65.216.151.125, 63.118.47.119, 65.201.168.195, 65.201.131.67, not charts.gitlab.io
+>> Error: looks like "https://charts.gitlab.io" is not a valid chart repository or cannot be reached: Get "https://charts.gitlab.io/index.yaml": x509: certificate is valid for abcd-caci.com, XX.FOO.BAR.AAA, XX.FOO.BAR.A12, XX.FOO.BAR.A13, XX.FOO.BAR.A14, XX.FOO.BAR.A15, XX.FOO.BAR.A16, XX.FOO.BAR.A17, XX.FOO.BAR.A18, not charts.gitlab.io
 
 
 ## DevOps the Hard way (not really)
