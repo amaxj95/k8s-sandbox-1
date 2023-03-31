@@ -1,0 +1,65 @@
+# Define the pipeline name and trigger
+name: k8s-sandbox-caci
+on:
+  push:
+    branches:
+      - main
+    
+# Define the jobs that make up the pipeline
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build Angular app
+        run: npm run build
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: aus10va/k8s-sandbox:latest
+      - name: Push Docker image
+        run: docker push aus10va/k8s-sandbox:latest
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run test
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Helm
+        uses: helm/install@v3
+      - name: Package Helm chart
+        uses: helm/chartify-action@v1
+        with:
+          chart_version: "1.0.0"
+          chart_name: k8s-sandbox_chart-caci
+          chart_icon: "https://k8s-sandbox-caci/icon.png"
+          chart_app_version: "1.0.0"
+      - name: Deploy Helm chart
+        uses: upperpal/helm3-action@v1
+        with:
+          chart: "./k8s-sandbox-caci-1.0.0.tgz"
+          namespace: k8s-sandbox
+          release: k8s-sandbox
+          values: "./values.yaml"
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+
+# Define any necessary environment variables or secrets
+env:
+  NODE_ENV: production
+  REGISTRY_USERNAME: my-username
+  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
